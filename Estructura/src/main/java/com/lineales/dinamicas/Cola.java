@@ -84,12 +84,12 @@ public class Cola {
     public Cola clone(){
       Cola colita = new Cola();
       if(frente!=null){
-          colita=clonar(frente, colita);
+          colita.clonar(frente, colita);
       }
       return colita;
     }
     
-    private Cola clonar(Nodo auxOrig, Cola colita){
+    private void clonar(Nodo auxOrig, Cola colita){
         
         Nodo auxiliar;
         if(auxOrig.getEnlace() == null){
@@ -104,7 +104,7 @@ public class Cola {
             
         }
         
-        return colita;
+        
     }
 
 }
