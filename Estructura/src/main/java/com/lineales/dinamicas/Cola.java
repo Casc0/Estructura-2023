@@ -59,7 +59,7 @@ public class Cola {
 
     @Override
     public String toString() {
-        String s = "";
+        String s;
 
         if (frente == null) {
             s = "[Pila vacia";
