@@ -124,13 +124,31 @@ public class Lista {
         return (cabecera == null);
     }
 
-    @Override
-    public Lista clone() {
-
-    }
+//    @Override
+//    public Lista clone() {
+//
+//    }
 
     @Override
     public String toString() {
+        String s;
 
+        if (cabecera == null) {
+            s = "[Pila vacia";
+        } else {
+            Nodo aux = cabecera;
+            s = "[";
+
+            while (aux != null) {
+                s = s + aux.getElem().toString();
+                aux = aux.getEnlace();
+
+                if (aux != null) {
+                    s = s + ", ";
+                }
+            }
+        }
+        s = s + "]";
+        return s;
     }
 }
