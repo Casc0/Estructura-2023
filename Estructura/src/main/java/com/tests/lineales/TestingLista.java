@@ -2,7 +2,7 @@
 package com.tests.lineales;
 import com.lineales.dinamicas.Lista;
 
-public class testListaProfe {
+public class TestingLista {
 
 	
 	

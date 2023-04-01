@@ -124,10 +124,31 @@ public class Lista {
         return (cabecera == null);
     }
 
-//    @Override
-//    public Lista clone() {
-//
-//    }
+    @Override
+    public Lista clone() {
+    Lista listita = new Lista();
+      if(cabecera!=null){
+          listita.clonar(cabecera, listita);
+      }
+      return listita;
+    }
+    
+     private void clonar(Nodo auxOrig, Lista listita){
+        
+        Nodo auxiliar;
+        if(auxOrig.getEnlace() == null){
+            auxiliar = new Nodo(auxOrig.getElem(), null);
+            listita.cabecera = auxiliar;
+            
+        }else{
+            listita.clonar(auxOrig.getEnlace(), listita);
+            auxiliar = new Nodo(auxOrig.getElem(), listita.cabecera);
+            listita.cabecera=auxiliar;
+            
+        }
+        
+        
+    }
 
     @Override
     public String toString() {
@@ -140,7 +161,7 @@ public class Lista {
             s = "[";
 
             while (aux != null) {
-                s = s + aux.getElem().toString();
+                s = s + aux.getElem();
                 aux = aux.getEnlace();
 
                 if (aux != null) {

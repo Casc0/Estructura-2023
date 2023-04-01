@@ -7,7 +7,7 @@ package com.tests.lineales;
 import com.lineales.dinamicas.Cola;
 // import lineales.dinamicas.Cola;
 
-public class testColaProfe {
+public class TestingCola {
 
 	
 	static String sOk = "OK!", sErr = "ERROR";
