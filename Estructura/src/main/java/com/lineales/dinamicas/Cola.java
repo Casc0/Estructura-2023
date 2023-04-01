@@ -82,25 +82,25 @@ public class Cola {
 
     @Override
     public Cola clone(){
-      Cola colita = new Cola();
+      Cola clon = new Cola();
       if(frente!=null){
-          colita.clonar(frente, colita);
+          clon.clonar(frente, clon);
       }
-      return colita;
+      return clon;
     }
     
-    private void clonar(Nodo auxOrig, Cola colita){
+    private void clonar(Nodo auxOrig, Cola clon){
         
         Nodo auxiliar;
         if(auxOrig.getEnlace() == null){
             auxiliar = new Nodo(auxOrig.getElem(), null);
-            colita.frente = auxiliar;
-            colita.fin =  colita.frente;
+            clon.frente = auxiliar;
+            clon.fin =  clon.frente;
             
         }else{
-            colita.clonar(auxOrig.getEnlace(), colita);
-            auxiliar = new Nodo(auxOrig.getElem(), colita.frente);
-            colita.frente=auxiliar;
+            clon.clonar(auxOrig.getEnlace(), clon);
+            auxiliar = new Nodo(auxOrig.getElem(), clon.frente);
+            clon.frente=auxiliar;
             
         }
         

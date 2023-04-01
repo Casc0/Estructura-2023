@@ -5,7 +5,7 @@ public class Lista {
     private Nodo cabecera;
 
     public Lista() {
-        cabecera = new Nodo(null, null);
+        cabecera = null;
     }
 
     public boolean insertar(Object obj, int pos) {
@@ -81,7 +81,7 @@ public class Lista {
         boolean encontro = false;
         if (cabecera != null || pos >= 1 || pos <= this.longitud()) {
             //mientras no sea el ultimo nodo y no se haya encontrado, se itera nodo por nodo.
-            do {
+            while (iterador.getEnlace() != null && !encontro){
 
                 if (iterador.getElem() == elem) {
                     encontro = true;
@@ -90,7 +90,7 @@ public class Lista {
                     pos++;
                 }
 
-            } while (iterador.getEnlace() != null && !encontro);
+            } 
         }
         if (!encontro) {
             pos = -1;
@@ -101,17 +101,17 @@ public class Lista {
     }
 
     public int longitud() {
-        int pos = -1;
+        int pos = 0;
         Nodo iterador = cabecera;
         if (cabecera != null) {
             pos = 1;
             //mientras no sea el ultimo nodo y no se haya encontrado, se itera nodo por nodo.
-            do {
+            while(iterador.getEnlace() != null){
                 iterador = iterador.getEnlace();
                 pos++;
-            } while (iterador.getEnlace() != null);
+            } 
 
-        }
+        }       
 
         return pos;
     }

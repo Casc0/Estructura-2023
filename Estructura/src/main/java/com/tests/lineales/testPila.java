@@ -42,7 +42,7 @@ public class testPila {
                     break;
 
                 case 4:
-                    System.out.println(pilita.esVacio());
+                    System.out.println(pilita.esVacia());
                     break;
 
                 case 5:
