@@ -33,7 +33,7 @@ public class Lista {
 
     public boolean eliminar(int pos) {
         boolean exito = true;
-        if (pos < 1 || this.longitud() + 1 < pos) {
+        if (pos < 1 || this.longitud() < pos) {
             exito = false;
         } else {
             if (pos == 1) { //crea un nuevo nodo y enlaza la cabecera
@@ -53,13 +53,14 @@ public class Lista {
     }
 
     public Object recuperar(int pos) {
+        //es precondicion que la posicion sea valida
         int i = 1;
         Nodo iterador = cabecera;
         boolean encontro = false;
         Object obj = null;
-        if (cabecera != null || pos >= 1 || pos <= this.longitud()) {
+        if (cabecera != null) {
             //mientras no sea el ultimo nodo y no se haya encontrado, se itera nodo por nodo.
-            do {
+            while (iterador.getEnlace() != null && !encontro){
 
                 if (pos == i) {
                     encontro = true;
@@ -69,7 +70,7 @@ public class Lista {
                     i++;
                 }
 
-            } while (iterador.getEnlace() != null && !encontro);
+            } 
         }
 
         return obj;
