@@ -21,7 +21,20 @@ public class testLista {
         
         Lista clon = listita.clone();
         
+        clon.eliminar(6);
+        
         System.out.println(clon.toString());
+        
+        listita.eliminar(listita.localizar(2));
+        
+        System.out.println(listita.insertar(23, 24));
+        
+        System.out.println(listita.insertar(23, 4));
+        System.out.println(listita.recuperar(4));
+        
+        
+        
+        
         
     }    
         

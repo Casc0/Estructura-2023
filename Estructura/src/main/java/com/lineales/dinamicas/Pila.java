@@ -1,5 +1,9 @@
 package com.lineales.dinamicas;
-
+/************** Autores ***********
+Franco Fabris Legajo FAI-3206
+Tania Barbieri Legajo FAI-3793
+Nicole Careta Legajo FAI-3299
+*/
 public class Pila {
 
     private Nodo tope;
