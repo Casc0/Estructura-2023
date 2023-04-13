@@ -59,8 +59,8 @@ public class Lista {
         boolean encontro = false;
         Object obj = null;
         if (cabecera != null) {
-            //mientras no sea el ultimo nodo y no se haya encontrado, se itera nodo por nodo.
-            while (iterador.getEnlace() != null && !encontro){
+            //mientras este dentro de la lista y no se haya encontrado, se itera nodo por nodo.
+            while (iterador != null && !encontro){
 
                 if (pos == i) {
                     encontro = true;
@@ -77,12 +77,12 @@ public class Lista {
     }
 
     public int localizar(Object elem) {
-        int pos = 0;
+        int pos = 1;
         Nodo iterador = cabecera;
         boolean encontro = false;
-        if (cabecera != null || pos >= 1 || pos <= this.longitud()) {
-            //mientras no sea el ultimo nodo y no se haya encontrado, se itera nodo por nodo.
-            while (iterador.getEnlace() != null && !encontro){
+        if (cabecera != null) {
+            //mientras este dentro de la lista y no se haya encontrado, se itera nodo por nodo.
+            while (iterador != null && !encontro){
 
                 if (iterador.getElem() == elem) {
                     encontro = true;
