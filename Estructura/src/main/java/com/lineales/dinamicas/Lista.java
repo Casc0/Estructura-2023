@@ -16,12 +16,7 @@ public class Lista {
             if (pos == 1) { //crea un nuevo nodo y enlaza la cabecera
                 cabecera = new Nodo(obj, cabecera);
             } else { //avanza hasta el nodo en pos - 1
-                Nodo aux = cabecera;
-                int i = 1;
-                while (i < pos - 1) {
-                    aux = aux.getEnlace();
-                    i++;
-                }
+                Nodo aux = avanzar(pos);
                 //crea el nodo y lo enlaza
                 Nodo nuevo = new Nodo(obj, aux.getEnlace());
                 aux.setEnlace(nuevo);
@@ -29,6 +24,15 @@ public class Lista {
         }
 
         return exito;
+    }
+
+    private Nodo avanzar(int pos) {
+        Nodo aux = cabecera;
+        int i;
+        for( i = 1; i < pos - 1; i++) {
+            aux = aux.getEnlace();            
+        }
+        return aux;
     }
 
     public boolean eliminar(int pos) {
@@ -39,12 +43,7 @@ public class Lista {
             if (pos == 1) { //crea un nuevo nodo y enlaza la cabecera
                 cabecera = cabecera.getEnlace();
             } else { //avanza hasta el nodo en pos - 1
-                Nodo aux = cabecera;
-                int i = 1;
-                while (i < pos - 1) {
-                    aux = aux.getEnlace();
-                    i++;
-                }
+                Nodo aux = avanzar(pos);
                 aux.setEnlace(aux.getEnlace().getEnlace());
             }
         }
@@ -60,7 +59,7 @@ public class Lista {
         Object obj = null;
         if (cabecera != null) {
             //mientras este dentro de la lista y no se haya encontrado, se itera nodo por nodo.
-            while (iterador != null && !encontro){
+            while (iterador != null && !encontro) {
 
                 if (pos == i) {
                     encontro = true;
@@ -70,7 +69,7 @@ public class Lista {
                     i++;
                 }
 
-            } 
+            }
         }
 
         return obj;
@@ -82,16 +81,16 @@ public class Lista {
         boolean encontro = false;
         if (cabecera != null) {
             //mientras este dentro de la lista y no se haya encontrado, se itera nodo por nodo.
-            while (iterador != null && !encontro){
+            while (iterador != null && !encontro) {
 
-                if (iterador.getElem() == elem) {
+                if (iterador.getElem().equals(elem)) {
                     encontro = true;
                 } else {
                     iterador = iterador.getEnlace();
                     pos++;
                 }
 
-            } 
+            }
         }
         if (!encontro) {
             pos = -1;
@@ -107,12 +106,12 @@ public class Lista {
         if (cabecera != null) {
             pos = 1;
             //mientras no sea el ultimo nodo y no se haya encontrado, se itera nodo por nodo.
-            while(iterador.getEnlace() != null){
+            while (iterador.getEnlace() != null) {
                 iterador = iterador.getEnlace();
                 pos++;
-            } 
+            }
 
-        }       
+        }
 
         return pos;
     }
@@ -127,28 +126,27 @@ public class Lista {
 
     @Override
     public Lista clone() {
-    Lista listita = new Lista();
-      if(cabecera!=null){
-          listita.clonar(cabecera, listita);
-      }
-      return listita;
+        Lista listita = new Lista();
+        if (cabecera != null) {
+            listita.clonar(cabecera, listita);
+        }
+        return listita;
     }
-    
-     private void clonar(Nodo auxOrig, Lista listita){
-        
+
+    private void clonar(Nodo auxOrig, Lista listita) {
+
         Nodo auxiliar;
-        if(auxOrig.getEnlace() == null){
+        if (auxOrig.getEnlace() == null) {
             auxiliar = new Nodo(auxOrig.getElem(), null);
             listita.cabecera = auxiliar;
-            
-        }else{
+
+        } else {
             listita.clonar(auxOrig.getEnlace(), listita);
             auxiliar = new Nodo(auxOrig.getElem(), listita.cabecera);
-            listita.cabecera=auxiliar;
-            
+            listita.cabecera = auxiliar;
+
         }
-        
-        
+
     }
 
     @Override
