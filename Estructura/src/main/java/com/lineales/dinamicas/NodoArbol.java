@@ -1,7 +1,7 @@
 package com.lineales.dinamicas;
 
 
-public class NodoArbol {
+class NodoArbol {
     private Object elem;
     private NodoArbol derecho, izquierdo;
 
