@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.tests.lineales;
-import com.lineales.dinamicas.Cola;
+import com.lineales.estaticas.Cola;
 // import lineales.dinamicas.Cola;
 
 public class TestingCola {

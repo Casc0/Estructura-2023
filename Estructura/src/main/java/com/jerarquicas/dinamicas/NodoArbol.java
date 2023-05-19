@@ -1,4 +1,4 @@
-package com.lineales.dinamicas;
+package com.jerarquicas.dinamicas;
 
 
 class NodoArbol {

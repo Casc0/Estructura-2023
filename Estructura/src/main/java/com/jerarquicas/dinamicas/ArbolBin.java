@@ -1,4 +1,8 @@
-package com.lineales.dinamicas;
+package com.jerarquicas.dinamicas;
+
+import com.jerarquicas.dinamicas.NodoArbol;
+import com.lineales.dinamicas.Lista;
+import com.lineales.dinamicas.Cola;
 
 public class ArbolBin {
 
@@ -151,7 +155,9 @@ public class ArbolBin {
 
                 if (nivel == -1) {
                     nivel = auxNivel(izq, elem, iterador + 1);
-                } else {
+                }
+
+                if (nivel == -1) {
                     nivel = auxNivel(der, elem, iterador + 1);
                 }
             }
@@ -211,6 +217,44 @@ public class ArbolBin {
 
             listarInOrdenAux(nodo.getDerecho(), lis);
         }
+    }
+
+    public Lista listarNiveles() {
+        Lista listita = new Lista();
+        Cola colita = new Cola();
+        NodoArbol nodo = raiz;
+
+        return listita;
+    }
+//    
+//    @Override
+//    public ArbolBin  clone(){
+//        
+//    }
+
+    @Override
+    public String toString() {
+        return toStringAux(this.raiz);
+    }
+
+    private String toStringAux(NodoArbol n) {
+        String arbol = "";
+        if (n != null) {
+            arbol = n.getElem().toString();
+            if (n.getIzquierdo() != null) {
+                arbol = arbol + " HI:" + n.getIzquierdo().getElem();
+            } else {
+                arbol = arbol + " HI: - ";
+            }
+            if (n.getDerecho() != null) {
+                arbol = arbol + " HD:" + n.getDerecho().getElem() + "\n";
+            } else {
+                arbol = arbol + " HD: - " + "\n";
+            }
+            arbol = arbol + toStringAux(n.getIzquierdo());
+            arbol = arbol + toStringAux(n.getDerecho());
+        }
+        return arbol;
     }
 
 }

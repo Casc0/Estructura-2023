@@ -154,7 +154,7 @@ public class Lista {
         String s;
 
         if (cabecera == null) {
-            s = "[Pila vacia";
+            s = "[Lista vacia";
         } else {
             Nodo aux = cabecera;
             s = "[";
@@ -171,4 +171,28 @@ public class Lista {
         s = s + "]";
         return s;
     }
+        
+        public Lista obtenerMultiplos(int num){
+            Lista multiplos = new Lista();
+            int i = 1;
+            Nodo actual = cabecera, multiplosActual = new Nodo(null,  null), nuevo;
+            
+            while(actual != null){
+                System.out.println("El actual es " + actual.getElem());
+                if(i%num == 0){
+                    nuevo= new Nodo(actual.getElem(), null);
+                    if(multiplos.cabecera == null){
+                        multiplosActual = nuevo;
+                        multiplos.cabecera = multiplosActual;
+                    }else{
+                        multiplosActual.setEnlace(nuevo);
+                        multiplosActual = multiplosActual.getEnlace();
+                        
+                    }
+                }
+                i++;
+                actual = actual.getEnlace();
+            }
+            return multiplos;
+        }
 }

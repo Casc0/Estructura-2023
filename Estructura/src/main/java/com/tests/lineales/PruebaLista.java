@@ -23,21 +23,24 @@ public class PruebaLista {
 //        System.out.println(l3.toString());
 
         l1.vaciar();
-        l1.insertar(9, 1);
-        l1.insertar(6, 2);
-        l1.insertar(5, 3);
-        l1.insertar(0, 4);
-        l1.insertar(9, 5);
+        l1.insertar(1, 1);
+        l1.insertar(2, 2);
+        l1.insertar(3, 3);
+        l1.insertar(4, 4);
+        l1.insertar(5, 5);
         l1.insertar(6, 6);
-        l1.insertar(5, 7);
-        l1.insertar(0, 8);
-        l1.insertar(5, 9);
-        l1.insertar(6, 10);
-        l1.insertar(9, 11);
+        l1.insertar(7, 7);
+        l1.insertar(8, 8);
+        l1.insertar(9, 9);
+        l1.insertar(10, 10);
+        l1.insertar(11, 11);
+        l1.insertar(12, 11);
 
         System.out.println(l1.toString());
+        l1.vaciar();
+        System.out.println(l1.obtenerMultiplos(3));
         
-        System.out.println(comprobar(l1));
+        //System.out.println(comprobar(l1));
 
     }
 

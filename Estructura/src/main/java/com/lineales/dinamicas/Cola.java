@@ -62,7 +62,7 @@ public class Cola {
         String s;
 
         if (frente == null) {
-            s = "[Pila vacia";
+            s = "[Cola vacia";
         } else {
             Nodo aux = frente;
             s = "[";
