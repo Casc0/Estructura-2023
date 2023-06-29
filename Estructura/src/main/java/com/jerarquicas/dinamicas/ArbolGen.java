@@ -413,5 +413,92 @@ public class ArbolGen {
 
         return igual;
     }
-
-}
+    public boolean corroborarCamino(Lista l){
+        boolean exito;
+        if(this.raiz==null){
+            if(l.esVacia()){
+                exito=true;
+            }else{
+                exito=false;
+            }
+        }else{
+            exito=caminoRecu(raiz, l, 1);
+        }
+        return exito;
+    }
+    private boolean caminoRecu(NodoGen n, Lista l, int pos){
+        boolean exito=false;
+        if(n != null){
+            boolean igual = n.getElem().equals(l.recuperar(pos));
+            if(igual && pos == l.longitud()){
+                exito = true;
+            }else if(igual){
+                NodoGen hijo = n.getHijoIzquierdo();
+                while(hijo != null && !exito){
+                    caminoRecu(hijo, l, pos+1);
+                    hijo = hijo.getHermanoDerecho();
+                }
+            }
+        }
+        return exito;
+    }
+    }
+//    private boolean caminoRecu(NodoGen nodo, Lista l, int contador){
+//        boolean exito=false;
+//        if(nodo!=null){
+//            if(contador<=l.longitud()){
+//                if(l.recuperar(contador).equals(nodo.getElem())){
+//                    contador++;
+//                    exito=caminoRecu(nodo.getHijoIzquierdo(),l,contador);
+//                    if(!exito){
+//                        contador--;
+//                        exito=caminoRecu(nodo.getHermanoDerecho(),l,contador);
+//                        if(nodo.getHermanoDerecho()==null){
+//                            exito=false;
+//                        }
+//                    }
+//                    if(nodo.getHermanoDerecho()==null){
+//                            exito=false;
+//                        }
+//                }else{
+//                    exito=caminoRecu(nodo.getHermanoDerecho(),l,contador);
+//                }
+//            }else{
+//                exito=true;
+//            }
+//        }
+//        if(contador>=l.longitud()){
+//            exito=true;
+//        }
+//        return exito;
+//}
+//
+//    private boolean caminoRecu(NodoGen nodo, Lista l, int contador){
+//        boolean exito=false;
+//        if(nodo!=null){
+////           if(nodo.getElem().equals(l.recuperar(contador))){
+////               contador++;
+////           }
+//           NodoGen aux=nodo.getHijoIzquierdo();
+//        
+//        while(aux!=null && (!exito)){
+//            if(contador<=l.longitud()){
+//            exito=caminoRecu(aux,l,contador);
+//            if(aux.getElem().equals(l.recuperar(contador))){
+//                contador++;
+//                exito=caminoRecu(aux.getHijoIzquierdo(), l ,contador);
+////                if(!exito){
+////                    contador--;
+////                    aux=aux.getHermanoDerecho();
+////                }
+//            }else{
+//                aux=aux.getHermanoDerecho();
+//            }
+//            }else{
+//                exito=true;
+//            }}
+//        }
+//        
+//        return exito;
+//    }
+//}
