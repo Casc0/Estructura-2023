@@ -1,15 +1,15 @@
 package com.conjuntistas.dinamicas;
 
-public class NodoAVL {
+class NodoAVL {
     private Comparable elem;
     private int altura;
     private NodoAVL izquierdo, derecho;
     
     public NodoAVL( Comparable elemento, NodoAVL izq, NodoAVL der){
         elem = elemento;
-        altura = 0;
         izquierdo = izq;
         derecho = der;
+        recalcularAltura();
     }
 
     public Object getElem() {
