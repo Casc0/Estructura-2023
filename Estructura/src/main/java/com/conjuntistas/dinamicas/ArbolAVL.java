@@ -8,30 +8,30 @@ public class ArbolAVL {
         raiz = null;
     }
 
-    public boolean pertenece(Comparable x) {
+    public boolean pertenece(Comparable codigo) {
         boolean esta = false;
         if (raiz != null) {
-            esta = buscarElem(raiz, x);
+            esta = buscarElem(raiz, codigo);
         }
         return esta;
     }
 
-    private boolean buscarElem(NodoAVL n, Comparable x) {
+    private boolean buscarElem(NodoAVL n, Comparable codigo) {
         boolean esta = false;
         if (n != null) {
-            int comparacion = x.compareTo(n.getElem());
+            int comparacion = codigo.compareTo(n.getElem());
             if (comparacion == 0) {
                 esta = true;
             } else if (comparacion > 0) {
-                esta = buscarElem(n.getDerecho(), x);
+                esta = buscarElem(n.getDerecho(), codigo);
             } else {
-                esta = buscarElem(n.getIzquierdo(), x);
+                esta = buscarElem(n.getIzquierdo(), codigo);
             }
         }
 
         return esta;
     }
-
+    
     public boolean insertar(Comparable x) {
         boolean pudo;
         if (raiz == null) {
@@ -154,8 +154,6 @@ public class ArbolAVL {
         }
         pivote.setIzquierdo(aux);
         nuevaRaiz.setDerecho(pivote);
-
-        System.out.println("rotacion derecha");
     }
 
     private void rotacionIzq(NodoAVL padre, NodoAVL pivote) {
@@ -182,8 +180,6 @@ public class ArbolAVL {
 
         pivote.setDerecho(aux);
         nuevaRaiz.setIzquierdo(pivote);
-
-        System.out.println("rotacion izquierda Con pivote " + pivote.getElem());
     }
 
     public boolean eliminar(Comparable x) {
